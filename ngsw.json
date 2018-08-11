@@ -1,0 +1,71 @@
+{
+  "configVersion": 1,
+  "index": "https://dirkluijk.github.io/ng-sudoku/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "https://dirkluijk.github.io/ng-sudoku/favicon.ico",
+        "https://dirkluijk.github.io/ng-sudoku/index.html",
+        "https://dirkluijk.github.io/ng-sudoku/main.887113dc0dd5602a38ca.js",
+        "https://dirkluijk.github.io/ng-sudoku/polyfills.2f4a59095805af02bd79.js",
+        "https://dirkluijk.github.io/ng-sudoku/runtime.a66f828dca56eeb90e02.js",
+        "https://dirkluijk.github.io/ng-sudoku/styles.ac0c5811eb9b4b74e67f.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "https://dirkluijk.github.io/ng-sudoku/assets/icons/icon-128x128.png",
+        "https://dirkluijk.github.io/ng-sudoku/assets/icons/icon-144x144.png",
+        "https://dirkluijk.github.io/ng-sudoku/assets/icons/icon-152x152.png",
+        "https://dirkluijk.github.io/ng-sudoku/assets/icons/icon-192x192.png",
+        "https://dirkluijk.github.io/ng-sudoku/assets/icons/icon-384x384.png",
+        "https://dirkluijk.github.io/ng-sudoku/assets/icons/icon-512x512.png",
+        "https://dirkluijk.github.io/ng-sudoku/assets/icons/icon-72x72.png",
+        "https://dirkluijk.github.io/ng-sudoku/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "https://dirkluijk.github.io/ng-sudoku/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "https://dirkluijk.github.io/ng-sudoku/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "https://dirkluijk.github.io/ng-sudoku/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "https://dirkluijk.github.io/ng-sudoku/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "https://dirkluijk.github.io/ng-sudoku/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "https://dirkluijk.github.io/ng-sudoku/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "https://dirkluijk.github.io/ng-sudoku/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "https://dirkluijk.github.io/ng-sudoku/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "https://dirkluijk.github.io/ng-sudoku/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "https://dirkluijk.github.io/ng-sudoku/index.html": "604682700d39940293967a28ed33b249ba9d1f1f",
+    "https://dirkluijk.github.io/ng-sudoku/main.887113dc0dd5602a38ca.js": "4cf2c4e804d034fc2357814e45c543050f014006",
+    "https://dirkluijk.github.io/ng-sudoku/polyfills.2f4a59095805af02bd79.js": "8949bb1b1e302dda246f6ed9c2da703270360b1f",
+    "https://dirkluijk.github.io/ng-sudoku/runtime.a66f828dca56eeb90e02.js": "078e320cc6fdaf355836c3b1c52b059cdd33fc7e",
+    "https://dirkluijk.github.io/ng-sudoku/styles.ac0c5811eb9b4b74e67f.css": "67e7b2ba404617a0ed0d55c72bb5b6e19b52eca6"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ]
+}
