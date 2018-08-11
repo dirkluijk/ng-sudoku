@@ -1,0 +1,80 @@
+header {
+  display: flex;
+  background: #efefef;
+  padding: 16px;
+  font-size: 14px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+
+  .left, .center, .right {
+    display: flex;
+    flex: 1;
+  }
+
+  .left {
+    justify-content: flex-start;
+  }
+
+  .center {
+    justify-content: center;
+  }
+
+  .right {
+    justify-content: flex-end;
+  }
+
+  button {
+    background: #fff;
+    padding: 10px 16px;
+    font-size: 16px;
+    align-self: flex-start;
+  }
+
+  h1 {
+    margin: 0;
+  }
+}
+
+main {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.timer {
+  text-align: center;
+  margin: 8px;
+}
+
+label {
+  display: block;
+}
+
+.options {
+  display: flex;
+
+  button {
+    flex: 1;
+    padding: 10px 0;
+    font-size: 16px;
+    background: #fff;
+
+    &.active {
+      background: #83c8ef;
+    }
+  }
+}
+
+.controls {
+  display: flex;
+
+  button {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    font-size: 20px;
+    outline: none;
+    text-align: center;
+    background: #fff;
+  }
+}
