@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { SudokuComponent } from './sudoku/sudoku.component';
 import { FormsModule } from '@angular/forms';
 import { FormatTimePipe } from './format-time.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { FormatTimePipe } from './format-time.pipe';
   imports: [
     BrowserModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]

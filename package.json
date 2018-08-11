@@ -19,6 +19,7 @@
     "@angular/http": "^6.1.0",
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
+    "@angular/pwa": "0.6.8",
     "@angular/router": "^6.1.0",
     "@fortawesome/angular-fontawesome": "^0.1.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.2",
@@ -27,7 +28,8 @@
     "@jlguenego/sudoku-generator": "^1.0.7",
     "core-js": "^2.5.4",
     "rxjs": "^6.0.0",
-    "zone.js": "~0.8.26"
+    "zone.js": "~0.8.26",
+    "@angular/service-worker": "^6.1.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.7.0",
