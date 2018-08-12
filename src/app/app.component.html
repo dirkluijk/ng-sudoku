@@ -25,9 +25,13 @@
       <mat-icon>clear</mat-icon>
       Erase
     </button>
-    <button mat-raised-button (click)="noteMode = !noteMode" [class.active]="noteMode">
+    <button mat-raised-button (click)="noteMode = !noteMode" [color]="noteMode ? 'primary' : undefined">
       <mat-icon>note</mat-icon>
       Notes
+    </button>
+    <button mat-raised-button (click)="sudokuComp.hint()">
+      <mat-icon>help</mat-icon>
+      Hint
     </button>
   </div>
 
