@@ -20,8 +20,6 @@
 <main>
   <su-sudoku [sudoku]="sudoku" (finish)="onGameFinished()"></su-sudoku>
 
-  <mat-card>
-    <p>{{ elapsedTime | formatTime }}</p>
-  </mat-card>
+  <p class="time">{{ elapsedTime | formatTime }}</p>
 </main>
 
