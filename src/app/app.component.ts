@@ -45,13 +45,13 @@ export class AppComponent implements OnInit {
   private get numberOfEmptyFields(): number {
     switch (this.difficulty) {
       case 'easy':
-        return 20;
-      case 'moderate':
         return 35;
-      case 'hard':
+      case 'moderate':
         return 45;
+      case 'hard':
+        return 52;
       case 'expert':
-        return 55;
+        return 58;
     }
   }
 }
