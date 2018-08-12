@@ -5,6 +5,8 @@ import { Observable, timer } from 'rxjs';
 
 import { Sudoku } from './sudoku/sudoku';
 
+export type Difficulty = 'easy' | 'moderate' | 'hard' | 'expert';
+
 @Component({
   selector: 'su-root',
   templateUrl: './app.component.html',
@@ -17,6 +19,8 @@ export class AppComponent implements OnInit {
   eraserIcon = faEraser;
   pencilIcon = faPencilAlt;
 
+  difficulty: Difficulty = 'easy';
+
   ngOnInit(): void {
     this.generate();
   }
@@ -27,7 +31,7 @@ export class AppComponent implements OnInit {
 
   generate(): void {
     const solution = SudokuSolver.generate();
-    const masked = SudokuSolver.carve(solution, 55);
+    const masked = SudokuSolver.carve(solution, this.numberOfEmptyFields);
 
     this.sudoku = solution.map(row => row.map(number => ({ answer: number })));
 
@@ -39,5 +43,18 @@ export class AppComponent implements OnInit {
     });
 
     this.timer$ = timer(0, 1000);
+  }
+
+  private get numberOfEmptyFields(): number {
+    switch (this.difficulty) {
+      case 'easy':
+        return 20;
+      case 'moderate':
+        return 35;
+      case 'hard':
+        return 45;
+      case 'expert':
+        return 55;
+    }
   }
 }

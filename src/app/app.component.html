@@ -7,7 +7,14 @@
     <h1>ngSudoku</h1>
   </div>
 
-  <div class="right"></div>
+  <div class="right">
+    <select [(ngModel)]="difficulty" (ngModelChange)="generate()">
+      <option [value]="'easy'">Easy</option>
+      <option [value]="'moderate'">Moderate</option>
+      <option [value]="'hard'">Hard</option>
+      <option [value]="'expert'">Expert</option>
+    </select>
+  </div>
 </header>
 
 <main>
