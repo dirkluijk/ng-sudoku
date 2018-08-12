@@ -1,14 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { MatButtonModule, MatIconModule, MatSelectModule, MatToolbarModule } from '@angular/material';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { SudokuComponent } from './sudoku/sudoku.component';
-import { FormsModule } from '@angular/forms';
 import { FormatTimePipe } from './format-time.pipe';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -17,9 +17,12 @@ import { environment } from '../environments/environment';
     FormatTimePipe,
   ],
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatIconModule,
     FormsModule,
-    FontAwesomeModule,
     ServiceWorkerModule.register('./ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],

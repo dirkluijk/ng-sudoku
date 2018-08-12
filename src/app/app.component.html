@@ -1,47 +1,46 @@
-<header>
+<mat-toolbar [color]="'primary'">
   <div class="left">
-    <button (click)="generate()">New game</button>
+    <button mat-raised-button (click)="generate()">New game</button>
   </div>
-
   <div class="center">
-    <h1>ngSudoku</h1>
+    <span>ngSudoku</span>
   </div>
 
   <div class="right">
-    <select [(ngModel)]="difficulty" (ngModelChange)="generate()">
-      <option [value]="'easy'">Easy</option>
-      <option [value]="'moderate'">Moderate</option>
-      <option [value]="'hard'">Hard</option>
-      <option [value]="'expert'">Expert</option>
-    </select>
+    <mat-select placeholder="Difficulty" [(ngModel)]="difficulty" (ngModelChange)="generate()">
+      <mat-option [value]="'easy'">Easy</mat-option>
+      <mat-option [value]="'moderate'">Moderate</mat-option>
+      <mat-option [value]="'hard'">Hard</mat-option>
+      <mat-option [value]="'expert'">Expert</mat-option>
+    </mat-select>
   </div>
-</header>
+</mat-toolbar>
 
 <main>
   <su-sudoku #sudokuComp [sudoku]="sudoku" [noteMode]="noteMode"></su-sudoku>
   <h3 class="timer">{{ timer$ | async | formatTime }}</h3>
 
   <div class="options">
-    <button (click)="sudokuComp.erase()">
-      <fa-icon [icon]="eraserIcon"></fa-icon>
+    <button mat-raised-button (click)="sudokuComp.erase()">
+      <mat-icon>clear</mat-icon>
       Erase
     </button>
-    <button (click)="noteMode = !noteMode" [class.active]="noteMode">
-      <fa-icon [icon]="pencilIcon"></fa-icon>
+    <button mat-raised-button (click)="noteMode = !noteMode" [class.active]="noteMode">
+      <mat-icon>note</mat-icon>
       Notes
     </button>
   </div>
 
   <div class="controls">
-    <button (click)="sudokuComp.insertNumber(1)">1</button>
-    <button (click)="sudokuComp.insertNumber(2)">2</button>
-    <button (click)="sudokuComp.insertNumber(3)">3</button>
-    <button (click)="sudokuComp.insertNumber(4)">4</button>
-    <button (click)="sudokuComp.insertNumber(5)">5</button>
-    <button (click)="sudokuComp.insertNumber(6)">6</button>
-    <button (click)="sudokuComp.insertNumber(7)">7</button>
-    <button (click)="sudokuComp.insertNumber(8)">8</button>
-    <button (click)="sudokuComp.insertNumber(9)">9</button>
+    <button mat-button (click)="sudokuComp.insertNumber(1)">1</button>
+    <button mat-button (click)="sudokuComp.insertNumber(2)">2</button>
+    <button mat-button (click)="sudokuComp.insertNumber(3)">3</button>
+    <button mat-button (click)="sudokuComp.insertNumber(4)">4</button>
+    <button mat-button (click)="sudokuComp.insertNumber(5)">5</button>
+    <button mat-button (click)="sudokuComp.insertNumber(6)">6</button>
+    <button mat-button (click)="sudokuComp.insertNumber(7)">7</button>
+    <button mat-button (click)="sudokuComp.insertNumber(8)">8</button>
+    <button mat-button (click)="sudokuComp.insertNumber(9)">9</button>
   </div>
 </main>
 

@@ -1,5 +1,4 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { faEraser, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { SudokuSolver } from '@jlguenego/sudoku-generator';
 import { Observable, timer } from 'rxjs';
 
@@ -16,8 +15,6 @@ export class AppComponent implements OnInit {
   noteMode = false;
   sudoku: Sudoku;
   timer$: Observable<number>;
-  eraserIcon = faEraser;
-  pencilIcon = faPencilAlt;
 
   difficulty: Difficulty = 'easy';
 

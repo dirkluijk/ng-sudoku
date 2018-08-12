@@ -1,9 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 body {
   padding: 0;
   margin: 0;
-  font-family: Arial;
-  color: #003063;
+  font: 500 20px/32px Roboto,"Helvetica Neue",sans-serif;
+  color: #3f51b5;
 }
 
 button {

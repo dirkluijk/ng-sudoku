@@ -1,11 +1,8 @@
-header {
-  display: flex;
-  background: #efefef;
-  padding: 16px;
-  font-size: 14px;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 16px;
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
 
   .left, .center, .right {
     display: flex;
@@ -24,21 +21,16 @@ header {
     justify-content: flex-end;
   }
 
-  button, select {
-    background: #fff;
-    padding: 10px 16px;
-    font-size: 16px;
-  }
-
-  h1 {
-    margin: 0;
+  mat-select {
+    text-align: right;
+    font-size: 14px;
   }
 }
 
 main {
   max-width: 400px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 16px;
 }
 
 .timer {
@@ -46,18 +38,13 @@ main {
   margin: 8px;
 }
 
-label {
-  display: block;
-}
-
 .options {
   display: flex;
+  margin: 8px -8px;
 
   button {
     flex: 1;
-    padding: 10px 0;
-    font-size: 16px;
-    background: #fff;
+    margin: 8px;
 
     &.active {
       background: #83c8ef;
@@ -70,11 +57,8 @@ label {
 
   button {
     flex: 1;
-    padding: 10px 0;
-    border: none;
-    font-size: 20px;
-    outline: none;
+    min-width: 0;
     text-align: center;
-    background: #fff;
+    font-size: large;
   }
 }
