@@ -50,8 +50,6 @@ export class SudokuComponent implements OnChanges {
   onKeyDown(event: KeyboardEvent) {
     const number = parseInt(event.key, 10);
 
-    // event.preventDefault();
-
     if (!this.activeField || isNaN(number) || number < 1 || number > 9) {
       return;
     }
@@ -80,6 +78,7 @@ export class SudokuComponent implements OnChanges {
       }
     } else if (!this.noteMode && !field.readonly) {
       field.value = number;
+      this.cleanNotes();
     }
   }
 
@@ -95,7 +94,7 @@ export class SudokuComponent implements OnChanges {
     return this.sudoku[this.currentRow].indexOf(this.activeField);
   }
 
-  private moveFocus(relativeCol = 0, relativeRow = 0) {
+  private moveFocus(relativeCol = 0, relativeRow = 0): void {
     if (!this.activeField) {
       return;
     }
@@ -104,5 +103,24 @@ export class SudokuComponent implements OnChanges {
     const newCol = between(this.currentCol + relativeCol, 0, 8);
 
     this.activeField = this.sudoku[newRow][newCol];
+  }
+
+  private cleanNotes(): void {
+    const removeNote = (field: SudokuField) => {
+      field.notes = field.notes ? field.notes.filter(n => n !== this.activeField.value) : [];
+    };
+
+    this.sudoku[this.currentRow].forEach(field => removeNote(field));
+    this.sudoku.forEach(row => removeNote(row[this.currentCol]));
+
+    // also within square...
+    const firstCol = this.currentCol - this.currentCol % 3;
+    const firstRow = this.currentRow - this.currentRow % 3;
+
+    [0, 1, 2].forEach(rowOffset => {
+      [0, 1, 2].forEach(colOffset => {
+        removeNote(this.sudoku[firstRow + rowOffset][firstCol + colOffset]);
+      });
+    });
   }
 }
