@@ -1,4 +1,8 @@
-# NgSudoku
+# ngSudoku
+
+A simple Sudoku app, built with Angular and Angular Material.
+
+Makes use of `@jlguenego/sudoku-generator` for generating the Sudoku grids.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.1.
 
