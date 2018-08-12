@@ -5,6 +5,11 @@ const between = (newValue: number, min: number, max: number) => {
   return Math.min(Math.max(newValue, min), max);
 };
 
+interface NumberButton {
+  number: number;
+  disabled?: boolean;
+}
+
 @Component({
   selector: 'su-sudoku',
   templateUrl: './sudoku.component.html',
@@ -17,9 +22,22 @@ export class SudokuComponent implements OnChanges {
   noteMode = false;
   activeField?: SudokuField;
 
+  numberButtons: NumberButton[] = [
+    {number: 1},
+    {number: 2},
+    {number: 3},
+    {number: 4},
+    {number: 5},
+    {number: 6},
+    {number: 7},
+    {number: 8},
+    {number: 9}
+  ];
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.soduku) {
       this.activeField = undefined;
+      this.checkNumbers();
     }
   }
 
@@ -88,6 +106,7 @@ export class SudokuComponent implements OnChanges {
       field.value = number;
 
       this.cleanNotes();
+      this.checkNumbers();
       this.checkFinished();
     }
   }
@@ -134,12 +153,18 @@ export class SudokuComponent implements OnChanges {
     });
   }
 
+  private checkNumbers(): void {
+    const countNumber = i => this.sudoku.reduce((sum, row) => sum + row.filter(f => f.value === i).length, 0);
+
+    this.numberButtons.forEach(button => {
+      button.disabled = countNumber(button.number) >= 9;
+    });
+  }
+
   private checkFinished(): void {
     if (this.finished) {
       this.finish.emit();
     }
-
-    console.log('finished', this.finished);
   }
 
   private get finished(): boolean {

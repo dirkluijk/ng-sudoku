@@ -16,13 +16,10 @@
 </div>
 
 <div class="controls">
-  <button mat-button (click)="insertNumber(1)">1</button>
-  <button mat-button (click)="insertNumber(2)">2</button>
-  <button mat-button (click)="insertNumber(3)">3</button>
-  <button mat-button (click)="insertNumber(4)">4</button>
-  <button mat-button (click)="insertNumber(5)">5</button>
-  <button mat-button (click)="insertNumber(6)">6</button>
-  <button mat-button (click)="insertNumber(7)">7</button>
-  <button mat-button (click)="insertNumber(8)">8</button>
-  <button mat-button (click)="insertNumber(9)">9</button>
+  <button *ngFor="let button of numberButtons"
+          mat-button
+          [disabled]="button.disabled"
+          (click)="insertNumber(button.number)">
+    {{ button.number }}
+  </button>
 </div>

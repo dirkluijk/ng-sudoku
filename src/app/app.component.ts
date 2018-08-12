@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SudokuSolver } from '@jlguenego/sudoku-generator';
-import { timer } from 'rxjs';
+import { Subscription, timer } from 'rxjs';
 
 import { Sudoku } from './sudoku/sudoku';
 import { MatDialog } from '@angular/material';
@@ -17,6 +17,8 @@ export class AppComponent implements OnInit {
   sudoku: Sudoku;
   elapsedTime: number;
   difficulty: Difficulty = 'easy';
+
+  private timerSubscription: Subscription;
 
   constructor(private dialog: MatDialog) {}
 
@@ -37,7 +39,7 @@ export class AppComponent implements OnInit {
       });
     });
 
-    timer(0, 1000).subscribe(time => this.elapsedTime = time);
+    this.startTimer();
   }
 
   onGameFinished() {
@@ -58,5 +60,13 @@ export class AppComponent implements OnInit {
       case 'expert':
         return 58;
     }
+  }
+
+  private startTimer(): void {
+    if (this.timerSubscription) {
+      this.timerSubscription.unsubscribe();
+    }
+
+    this.timerSubscription = timer(0, 1000).subscribe(time => this.elapsedTime = time);
   }
 }
