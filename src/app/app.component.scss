@@ -34,32 +34,7 @@ main {
   padding: 16px;
 }
 
-.timer {
+mat-card {
   text-align: center;
-  margin: 8px;
-}
-
-.options {
-  display: flex;
-  margin: 8px -8px;
-
-  button {
-    flex: 1;
-    margin: 8px;
-
-    &.active {
-      background: #83c8ef;
-    }
-  }
-}
-
-.controls {
-  display: flex;
-
-  button {
-    flex: 1;
-    min-width: 0;
-    text-align: center;
-    font-size: x-large;
-  }
+  margin: 16px;
 }

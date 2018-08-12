@@ -1,8 +1,10 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SudokuSolver } from '@jlguenego/sudoku-generator';
-import { Observable, timer } from 'rxjs';
+import { timer } from 'rxjs';
 
 import { Sudoku } from './sudoku/sudoku';
+import { MatDialog } from '@angular/material';
+import { FinishedDialogComponent } from './finished-dialog/finished-dialog.component';
 
 export type Difficulty = 'easy' | 'moderate' | 'hard' | 'expert';
 
@@ -12,25 +14,21 @@ export type Difficulty = 'easy' | 'moderate' | 'hard' | 'expert';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  noteMode = false;
   sudoku: Sudoku;
-  timer$: Observable<number>;
-
+  elapsedTime: number;
   difficulty: Difficulty = 'easy';
+
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.generate();
-  }
-
-  @HostListener('window:keydown.space') onSpace() {
-    this.noteMode = !this.noteMode;
   }
 
   generate(): void {
     const solution = SudokuSolver.generate();
     const masked = SudokuSolver.carve(solution, this.numberOfEmptyFields);
 
-    this.sudoku = solution.map(row => row.map(number => ({ answer: number })));
+    this.sudoku = solution.map(row => row.map(number => ({answer: number})));
 
     masked.forEach((row, rowIndex) => {
       row.forEach((value, colIndex) => {
@@ -39,7 +37,14 @@ export class AppComponent implements OnInit {
       });
     });
 
-    this.timer$ = timer(0, 1000);
+    timer(0, 1000).subscribe(time => this.elapsedTime = time);
+  }
+
+  onGameFinished() {
+    this.dialog
+      .open(FinishedDialogComponent, {data: {time: this.elapsedTime}})
+      .afterClosed()
+      .subscribe(() => this.generate());
   }
 
   private get numberOfEmptyFields(): number {

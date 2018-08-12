@@ -1,22 +1,28 @@
-<ng-container *ngFor="let row of sudoku; index as rowIndex">
-  <div class="cell"
-       *ngFor="let field of row; index as colIndex"
-       [class.top]="rowIndex % 3 === 0"
-       [class.bottom]="rowIndex % 3 === 2"
-       [class.left]="colIndex % 3 === 0"
-       [class.right]="colIndex % 3 === 2"
-       [class.readonly]="field.readonly"
-       [class.highlight-row]="rowIndex === currentRow"
-       [class.highlight-col]="colIndex === currentCol"
-       [class.highlight-same]="activeField?.value && activeField.value === field?.value"
-       [class.active]="field === activeField"
-       (click)="onFieldClick(field)">
-    <div class="value">{{ field.value }}</div>
-    <ng-container *ngIf="!field.value && field.notes?.length > 0">
-      <div class="note note-{{ note }}" *ngFor="let note of field.notes">
-        <div>{{ note }}</div>
-      </div>
-    </ng-container>
-  </div>
-</ng-container>
+<su-grid [sudoku]="sudoku" [(activeField)]="activeField"></su-grid>
 
+<div class="options">
+  <button mat-raised-button (click)="erase()">
+    <mat-icon>clear</mat-icon>
+    Erase
+  </button>
+  <button mat-raised-button (click)="noteMode = !noteMode" [color]="noteMode ? 'primary' : undefined">
+    <mat-icon>note</mat-icon>
+    Notes
+  </button>
+  <button mat-raised-button (click)="hint()">
+    <mat-icon>help</mat-icon>
+    Hint
+  </button>
+</div>
+
+<div class="controls">
+  <button mat-button (click)="insertNumber(1)">1</button>
+  <button mat-button (click)="insertNumber(2)">2</button>
+  <button mat-button (click)="insertNumber(3)">3</button>
+  <button mat-button (click)="insertNumber(4)">4</button>
+  <button mat-button (click)="insertNumber(5)">5</button>
+  <button mat-button (click)="insertNumber(6)">6</button>
+  <button mat-button (click)="insertNumber(7)">7</button>
+  <button mat-button (click)="insertNumber(8)">8</button>
+  <button mat-button (click)="insertNumber(9)">9</button>
+</div>

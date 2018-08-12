@@ -1,0 +1,128 @@
+$border-color: #003063;
+$active-color: #83c8ef;
+$highlight-row-color: #e8e8e8;
+$highlight-col-color: #e8e8e8;
+$highlight-same-color: #a8a8a8;
+$text-color: #00479f;
+$text-color--readonly: #000;
+
+:host {
+  background: $border-color;
+  border: 1px solid $border-color;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-column-gap: 1px;
+  grid-row-gap: 1px;
+  color: $text-color;
+}
+
+.cell {
+  background: white;
+  position: relative;
+  cursor: pointer;
+
+  &.readonly {
+    color: $text-color--readonly;
+  }
+
+  &.highlight-row {
+    background: $highlight-row-color;
+  }
+
+  &.highlight-col {
+    background: $highlight-col-color;
+  }
+
+  &.highlight-same {
+    background: $highlight-same-color;
+  }
+
+  &.active {
+    background: $active-color;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    padding-top: 100%;
+    width: 100%;
+  }
+
+  &.top {
+    border-top: 1px solid $border-color;
+  }
+
+  &.bottom {
+    border-bottom: 1px solid $border-color;
+  }
+
+  &.left {
+    border-left: 1px solid $border-color;
+  }
+
+  &.right {
+    border-right: 1px solid $border-color;
+  }
+
+  .value {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .note {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    font-size: 10px;
+    padding: 0 2px;
+    display: flex;
+    line-height: normal;
+  }
+
+  .note-1,
+  .note-2,
+  .note-3 {
+    align-items: flex-start;
+  }
+
+  .note-4,
+  .note-5,
+  .note-6 {
+    align-items: center;
+  }
+
+  .note-7,
+  .note-8,
+  .note-9 {
+    align-items: flex-end;
+  }
+
+  .note-1,
+  .note-4,
+  .note-7 {
+    justify-content: flex-start;
+  }
+
+  .note-2,
+  .note-5,
+  .note-8 {
+    justify-content: center;
+  }
+
+  .note-3,
+  .note-6,
+  .note-9 {
+    justify-content: flex-end;
+  }
+}

@@ -1,4 +1,4 @@
-import { Component, HostListener, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { Sudoku, SudokuField } from './sudoku';
 
 const between = (newValue: number, min: number, max: number) => {
@@ -12,14 +12,19 @@ const between = (newValue: number, min: number, max: number) => {
 })
 export class SudokuComponent implements OnChanges {
   @Input() sudoku: Sudoku;
-  @Input() noteMode: boolean;
+  @Output() finish = new EventEmitter<void>();
 
+  noteMode = false;
   activeField?: SudokuField;
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.soduku) {
       this.activeField = undefined;
     }
+  }
+
+  @HostListener('window:keydown.space') onSpace() {
+    this.noteMode = !this.noteMode;
   }
 
   @HostListener('window:keydown.arrowUp') onArrowUp(): void {
@@ -40,10 +45,6 @@ export class SudokuComponent implements OnChanges {
 
   @HostListener('window:keydown.backspace') onBackspace(): void {
     this.erase();
-  }
-
-  onFieldClick(field: SudokuField): void {
-    this.activeField = this.activeField === field ? undefined : field;
   }
 
   @HostListener('window:keydown', ['$event'])
@@ -67,6 +68,7 @@ export class SudokuComponent implements OnChanges {
   hint() {
     if (this.activeField && !this.activeField.readonly) {
       this.activeField.value = this.activeField.answer;
+      this.checkFinished();
     }
   }
 
@@ -84,7 +86,9 @@ export class SudokuComponent implements OnChanges {
       }
     } else if (!this.noteMode && !field.readonly) {
       field.value = number;
+
       this.cleanNotes();
+      this.checkFinished();
     }
   }
 
@@ -128,5 +132,17 @@ export class SudokuComponent implements OnChanges {
         removeNote(this.sudoku[firstRow + rowOffset][firstCol + colOffset]);
       });
     });
+  }
+
+  private checkFinished(): void {
+    if (this.finished) {
+      this.finish.emit();
+    }
+
+    console.log('finished', this.finished);
+  }
+
+  private get finished(): boolean {
+    return this.sudoku.every(row => row.every(field => field.value === field.answer));
   }
 }
