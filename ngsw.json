@@ -8,9 +8,9 @@
       "updateMode": "prefetch",
       "urls": [
         "https://dirkluijk.github.io/ng-sudoku/favicon.ico",
-        "https://dirkluijk.github.io/ng-sudoku/generator.worker.dist.js",
+        "https://dirkluijk.github.io/ng-sudoku/generator.worker.js",
         "https://dirkluijk.github.io/ng-sudoku/index.html",
-        "https://dirkluijk.github.io/ng-sudoku/main.850368e1c23a9ff0d272.js",
+        "https://dirkluijk.github.io/ng-sudoku/main.6b1bc5ad49adad97f6e1.js",
         "https://dirkluijk.github.io/ng-sudoku/polyfills.2f4a59095805af02bd79.js",
         "https://dirkluijk.github.io/ng-sudoku/runtime.a66f828dca56eeb90e02.js",
         "https://dirkluijk.github.io/ng-sudoku/styles.1462d1d507f09b117a27.css"
@@ -47,9 +47,9 @@
     "https://dirkluijk.github.io/ng-sudoku/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
     "https://dirkluijk.github.io/ng-sudoku/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "https://dirkluijk.github.io/ng-sudoku/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "https://dirkluijk.github.io/ng-sudoku/generator.worker.dist.js": "5084365525d0f205386e9696eea753e09e7e7118",
-    "https://dirkluijk.github.io/ng-sudoku/index.html": "9bfd8e38996142f6fd11de87860a0263021ccc58",
-    "https://dirkluijk.github.io/ng-sudoku/main.850368e1c23a9ff0d272.js": "85f1423edb94b0ba4e4afe82e0ff1268715827f0",
+    "https://dirkluijk.github.io/ng-sudoku/generator.worker.js": "5084365525d0f205386e9696eea753e09e7e7118",
+    "https://dirkluijk.github.io/ng-sudoku/index.html": "8e6e9e93d50b51ff28a5959a7aabf9ddfccfff86",
+    "https://dirkluijk.github.io/ng-sudoku/main.6b1bc5ad49adad97f6e1.js": "c2cbfc950da119beb887f4dd7f370c72afb3d003",
     "https://dirkluijk.github.io/ng-sudoku/polyfills.2f4a59095805af02bd79.js": "8949bb1b1e302dda246f6ed9c2da703270360b1f",
     "https://dirkluijk.github.io/ng-sudoku/runtime.a66f828dca56eeb90e02.js": "078e320cc6fdaf355836c3b1c52b059cdd33fc7e",
     "https://dirkluijk.github.io/ng-sudoku/styles.1462d1d507f09b117a27.css": "63600e1e09d97c187cc16ebd5b598e09c8e22b43"
