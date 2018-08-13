@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng run sudoku-generator:build && ng serve",
     "build": "ng run sudoku-generator:build && ng build",
+    "build:pages": "ng run sudoku-generator:build && ng build --prod --base-href 'https://dirkluijk.github.io/ng-sudoku/'",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
