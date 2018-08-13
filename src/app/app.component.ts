@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SudokuSolver } from '@jlguenego/sudoku-generator';
 import { Subscription, timer } from 'rxjs';
 
 import { Sudoku } from './sudoku/sudoku';
@@ -27,19 +26,26 @@ export class AppComponent implements OnInit {
   }
 
   generate(): void {
-    const solution = SudokuSolver.generate();
-    const masked = SudokuSolver.carve(solution, this.numberOfEmptyFields);
+    const worker = new Worker('generator.worker.js');
 
-    this.sudoku = solution.map(row => row.map(number => ({answer: number})));
+    worker.postMessage(this.numberOfEmptyFields);
 
-    masked.forEach((row, rowIndex) => {
-      row.forEach((value, colIndex) => {
-        this.sudoku[rowIndex][colIndex].value = value === 0 ? undefined : value;
-        this.sudoku[rowIndex][colIndex].readonly = value !== 0;
+    worker.onmessage = (event) => {
+      const { solution, masked } = event.data;
+
+      this.sudoku = solution.map(row => row.map(number => ({answer: number})));
+
+      masked.forEach((row, rowIndex) => {
+        row.forEach((value, colIndex) => {
+          this.sudoku[rowIndex][colIndex].value = value === 0 ? undefined : value;
+          this.sudoku[rowIndex][colIndex].readonly = value !== 0;
+        });
       });
-    });
 
-    this.startTimer();
+      this.startTimer();
+
+      worker.terminate();
+    };
   }
 
   onGameFinished() {

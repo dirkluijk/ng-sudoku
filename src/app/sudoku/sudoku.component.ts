@@ -86,7 +86,7 @@ export class SudokuComponent implements OnChanges {
   hint() {
     if (this.activeField && !this.activeField.readonly) {
       this.activeField.value = this.activeField.answer;
-      this.checkFinished();
+      this.insertNumber(this.activeField.answer);
     }
   }
 

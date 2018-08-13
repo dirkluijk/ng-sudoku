@@ -30,7 +30,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              { "input": "dist/generator.worker.js", "lazy": true }
+            ]
           },
           "configurations": {
             "production": {
@@ -127,6 +129,18 @@
             "exclude": [
               "**/node_modules/**"
             ]
+          }
+        }
+      }
+    },
+    "sudoku-generator": {
+      "root": "",
+      "projectType": "library",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-webpack:webpack",
+          "options": {
+            "webpackConfig": "webpack.config.js"
           }
         }
       }

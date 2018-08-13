@@ -3,14 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng run sudoku-generator:build && ng serve",
+    "build": "ng run sudoku-generator:build && ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/build-webpack": "^0.7.3",
     "@angular/animations": "^6.1.2",
     "@angular/cdk": "^6.4.3",
     "@angular/common": "^6.1.0",
