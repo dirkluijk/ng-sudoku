@@ -18,8 +18,15 @@
 </mat-toolbar>
 
 <main>
-  <su-sudoku [sudoku]="sudoku" (finish)="onGameFinished()"></su-sudoku>
+  <div *ngIf="!sudoku" class="spinner-container">
+    <mat-spinner></mat-spinner>
+    <h3>Generating a new game for you...</h3>
+  </div>
 
-  <p class="time">{{ elapsedTime | formatTime }}</p>
+  <ng-container *ngIf="sudoku">
+    <su-sudoku [sudoku]="sudoku" (finish)="onGameFinished()"></su-sudoku>
+
+    <p class="time">{{ elapsedTime | formatTime }}</p>
+  </ng-container>
 </main>
 

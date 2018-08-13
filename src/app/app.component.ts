@@ -26,6 +26,8 @@ export class AppComponent implements OnInit {
   }
 
   generate(): void {
+    this.sudoku = undefined;
+
     const worker = new Worker('generator.worker.js');
 
     worker.postMessage(this.numberOfEmptyFields);
